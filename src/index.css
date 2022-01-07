@@ -41,12 +41,22 @@ video {
 
 .btn {
   position: absolute;
-  top: 10%;
+  top: 5%;
   right: 10%;
-  height: 4rem;
-  width: 4rem;
+  height: 3rem;
+  width: 3rem;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  transition: all 0.3s ease-out;
+}
+.btn:hover {
+  transform: scale(1.2);
+}
+.btn:active {
+  transform: scale(1.05);
+}
+.btn img {
+  height: 100%;
+  width: 100%;
 }
 
 /* this is for the responsiveness */
