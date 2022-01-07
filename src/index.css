@@ -13,9 +13,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.image-container {
+  position: relative;
+}
 /* image and video css you can chnage the size here by chnaging width and height property object-fit will make it perfect so that image is look perfect */
 img {
-  position: relative;
   width: 100vw;
   height: 100vh;
   display: block;
@@ -41,8 +43,8 @@ video {
 
 .btn {
   position: absolute;
-  top: 1%;
-  right: 8%;
+  top: 3rem;
+  right: 1rem;
   height: 3rem;
   width: 3rem;
   cursor: pointer;
@@ -63,7 +65,8 @@ video {
 /* this is for the responsiveness */
 @media only screen and (max-width: 1200px) {
   .btn {
-    top: 23%;
+    top: 3rem;
+    right: 2rem;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -72,7 +75,15 @@ video {
   }
 
   .btn {
-    top: 38%;
+    top: 30%;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .btn {
+    top: 34%;
+    right: 1rem;
     height: 2.5rem;
     width: 2.5rem;
   }
