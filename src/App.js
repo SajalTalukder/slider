@@ -3,8 +3,6 @@ import React, { useState, useRef } from "react";
 // import Carousel and styling
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import play and pause icon from hero icon
-import { PlayIcon, PauseIcon } from "@heroicons/react/outline";
 
 // make an array of all src of the image and video
 const images = [
