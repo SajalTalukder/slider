@@ -1,7 +1,12 @@
-import React from "react";
+// import react react hooks
+import React, { useState, useRef } from "react";
+// import Carousel and styling
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+// import play and pause icon from hero icon
+import { PlayIcon, PauseIcon } from "@heroicons/react/solid";
 
+// make an array of all src of the image and video
 const images = [
   "images/1.png",
   "images/2.png",
@@ -32,9 +37,22 @@ const images = [
 ];
 
 function App() {
+  // useState for playing audio
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // ref to access the audio element
+  const audioRefs = useRef([]);
+
+  // creating a ref array of all audio element
+  audioRefs.current = [];
+  const addToRef = (el) => {
+    if (el && !audioRefs.current.includes(el)) {
+      audioRefs.current.push(el);
+    }
+  };
+  //this is the package responsive code we dont need to change them
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 1,
     },
@@ -54,21 +72,49 @@ function App() {
 
   return (
     <div className="slide-parent">
+      {/* carousel */}
       <Carousel
+        // allow swipeable to true
         swipeable={false}
+        // allow dragable to true
         draggable={false}
+        // show the dot in the slider
         showDots={false}
+        // this the package responsive
         responsive={responsive}
+        // this is for the keyboard control
         keyBoardControl={true}
-        ssr={false} // means to render carousel on server-side.
+        // means to render carousel on server-side.
+        ssr={false}
+        // make the slider infinite
         infinite={true}
+        // autoplay the slider
         autoPlay={false}
+        // this is for the slider transition
         transitionDuration={500}
+        // this is for the package css
         containerClass="carousel-container"
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
+        {/* loop through the image array and render individual image */}
         {images.map((fadeImage, index) => {
+          // this is the function for the custom play pause
+          const play = () => {
+            if (index !== 5 || index !== 16) {
+              const audio = audioRefs.current[index];
+              console.log(index, audioRefs.current);
+              if (!isPlaying) {
+                setIsPlaying(true);
+                audio.play();
+              }
+              if (isPlaying) {
+                setIsPlaying(false);
+                audio.pause();
+              }
+            }
+          };
+          // in index 5 and 16 there are video thats why we check and render video for this index
           if (index === 5) {
             return (
               <div className="flex" key={index}>
@@ -95,23 +141,33 @@ function App() {
                 </video>
               </div>
             );
-          } else
+          }
+          // here we render image
+          else
             return (
               <div className="flex" key={index}>
                 <div className="image-container">
                   <img src={fadeImage} alt="img" />
                   <audio
-                    controlsList="nodownload noplaybackrate novolume"
-                    // noplaybackrate will remove the progressbar of the audio
-                    // you can remove that to make large progressbar
-                    // also you need to change the width of the audio in css i comment already there check the index.css
                     className="audio"
-                    controls
+                    // add the ref
+                    ref={addToRef}
                   >
                     <source src={`audio/${index + 1}.mp3`} type="audio/ogg" />
                     <source src={`audio/${index + 1}.mp3`} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
+                  {/* conditionly render the play pause icon */}
+                  {!isPlaying && (
+                    <div onClick={play} className="btn">
+                      <PlayIcon className="play-cion" />
+                    </div>
+                  )}
+                  {isPlaying && (
+                    <div onClick={play} className="btn">
+                      <PauseIcon className="pause-cion" />
+                    </div>
+                  )}
                 </div>
               </div>
             );

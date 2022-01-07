@@ -13,24 +13,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.audio {
-  position: absolute;
-  top: 6%;
-  right: 3%;
-
-  width: 10%;
-  /* change this width to make the audio big  */
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-audio {
-  transition: all 0.4s;
-  filter: drop-shadow(1px 1.5px 1.5px #333);
-}
-audio:hover {
-  filter: drop-shadow(2px 3px 3px #333);
-}
+/* image and video css you can chnage the size here by chnaging width and height property object-fit will make it perfect so that image is look perfect */
 img {
   position: relative;
   width: 100vw;
@@ -45,49 +28,41 @@ video {
   display: block;
   object-fit: contain;
   margin: auto;
-
-  object-fit: contain;
 }
-
+/* make the arrow close to the edge */
 .react-multiple-carousel__arrow--right {
-  margin-right: -2.5rem !important;
+  margin-right: -2rem !important;
+
+  transition: all 0.5s;
 }
 .react-multiple-carousel__arrow--left {
-  margin-left: -2.5rem !important;
-}
-@media only screen and (max-width: 1200px) {
-  .audio {
-    width: 13%;
-  }
-}
-@media only screen and (max-width: 700px) {
-  img {
-    object-fit: contain;
-  }
-  .audio {
-    width: 20%;
-    top: 30%;
-  }
-}
-
-audio::-webkit-media-controls-timeline,
-video::-webkit-media-controls-timeline {
-  display: none;
-}
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display {
-  display: none;
+  margin-left: -2rem !important;
 }
 
 .btn {
   position: absolute;
   top: 10%;
   right: 10%;
-}
-audio::-webkit-media-controls-mute-button {
-  display: none !important;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
 }
 
-audio::-webkit-media-controls-volume-slider {
-  display: none !important;
+/* this is for the responsiveness */
+@media only screen and (max-width: 1200px) {
+  .btn {
+    top: 23%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  img {
+    object-fit: contain;
+  }
+
+  .btn {
+    top: 38%;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 }
