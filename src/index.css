@@ -34,19 +34,19 @@ audio:hover {
 img {
   position: relative;
   width: 100vw;
-  height: 95vh;
-  display: block;
-
-  margin: auto;
-  margin-top: 1rem;
-}
-video {
-  width: 100vw;
-  height: 95vh;
+  height: 100vh;
   display: block;
   object-fit: contain;
   margin: auto;
-  margin-top: 1rem;
+}
+video {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  object-fit: contain;
+  margin: auto;
+
+  object-fit: contain;
 }
 
 .react-multiple-carousel__arrow--right {
