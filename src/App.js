@@ -3,6 +3,8 @@ import React, { useState, useRef } from "react";
 // import Carousel and styling
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+// import play and pause icon from hero icon
+import { PlayIcon, PauseIcon } from "@heroicons/react/outline";
 
 // make an array of all src of the image and video
 const images = [
@@ -158,12 +160,12 @@ function App() {
                   {/* conditionly render the play pause icon */}
                   {!isPlaying && (
                     <div onClick={play} className="btn">
-                      <img src="/images/play.png" alt="play" />
+                      <PlayIcon className="play-cion" />
                     </div>
                   )}
                   {isPlaying && (
                     <div onClick={play} className="btn">
-                      <img src="/images/pause.png" alt="play" />
+                      <PauseIcon className="pause-cion" />
                     </div>
                   )}
                 </div>

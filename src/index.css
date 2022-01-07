@@ -41,12 +41,13 @@ video {
 
 .btn {
   position: absolute;
-  top: 5%;
-  right: 10%;
+  top: 1%;
+  right: 8%;
   height: 3rem;
   width: 3rem;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  color: white;
 }
 .btn:hover {
   transform: scale(1.2);
