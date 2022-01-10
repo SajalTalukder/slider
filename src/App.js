@@ -161,12 +161,12 @@ function App() {
                   {!isPlaying && (
                     <div onClick={play} className="btn">
                       {/* <PlayIcon className="play-cion" /> */}
-                      <img src="/images/black play.png" alt="play" />
+                      <img src="/images/bpause.png" alt="play" />
                     </div>
                   )}
                   {isPlaying && (
                     <div onClick={play} className="btn">
-                      <img src="/images/black pause.png" alt="pause" />
+                      <img src="/images/bplay.png" alt="pause" />
                       {/* <PauseIcon className="pause-cion" /> */}
                     </div>
                   )}

@@ -95,7 +95,7 @@ video {
 }
 @media only screen and (max-width: 800px) {
   .btn {
-    top: 12rem;
+    top: 11.5rem;
     right: 3rem;
   }
 }
@@ -135,7 +135,6 @@ video {
 @media only screen and (max-width: 400px) {
   .btn {
     top: 19rem;
-
     height: 2.5rem;
     width: 2.5rem;
   }
